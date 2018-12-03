@@ -6,16 +6,16 @@ import chat.network.TCPConnetionListener;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-public class ChatServer extends ChatServerAbstract implements TCPConnetionListener {
+public class Server extends ChatServerAbstract implements TCPConnetionListener {
     public static void main(String[] args) {
 
-        ChatServerAbstract chatServer = new ChatServer();
-        chatServer.runServer();
+        ChatServerAbstract Server = new Server();
+        Server.runServer();
     }
 
     protected void runServer() {
         System.out.println("Server running...");
-        try (ServerSocket serverSocket = new ServerSocket(8189)) {
+        try (ServerSocket serverSocket = new ServerSocket(8190)) {
             while (true) {
                 try {
                     new TCPConnection(this, serverSocket.accept()); // ждать пока кто-нибудь не подключиться
